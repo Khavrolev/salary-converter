@@ -20,9 +20,9 @@ function App() {
 
   async function loadCurrencyRates() {
     setIsLoading(true);
-    // const rates = await getCurrencyRates();
-    // setRates(rates);
-    setRates({ EUR: 0.010313, USD: 0.011258 });
+
+    const rates = await getCurrencyRates();
+    setRates(rates);
 
     setIsLoading(false);
   }
