@@ -1,0 +1,15 @@
+.input__label {
+  margin-right: 10px;
+}
+
+.input_wrapper {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+  & .input__field {
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+  }
+}

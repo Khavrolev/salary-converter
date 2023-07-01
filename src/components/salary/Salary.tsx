@@ -1,5 +1,6 @@
-import { Currency, CurrencyRates } from "../utils/types";
-import Input from "./Input";
+import { Currency, CurrencyRates } from "../../utils/types";
+import Input from "../input/Input";
+import styles from "./Salary.module.scss";
 
 interface Props {
   salary: CurrencyRates;
@@ -14,7 +15,7 @@ function Salary({ salary, rates, changeSalary }: Props) {
   }
 
   return (
-    <div>
+    <div className={styles.salary}>
       {Object.values(Currency).map((currency) => (
         <Input
           key={currency}

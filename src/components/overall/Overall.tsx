@@ -1,5 +1,5 @@
-import { Currency, CurrencyRates } from "../utils/types";
-import { formatSalary } from "../utils/utils";
+import { Currency, CurrencyRates } from "../../utils/types";
+import { formatSalary } from "../../utils/utils";
 
 interface Props {
   salary: CurrencyRates;

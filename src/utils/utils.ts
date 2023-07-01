@@ -11,7 +11,9 @@ export function initSalary() {
 }
 
 export function formatSalary(value: number) {
-  return `${value.toFixed(2)} ${BASE_CURRENCY}`;
+  return `${value.toLocaleString("ru", {
+    maximumFractionDigits: 2,
+  })} ${BASE_CURRENCY}`;
 }
 
 export function validateInput(value: string | null) {
