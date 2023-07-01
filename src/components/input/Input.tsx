@@ -10,6 +10,7 @@ interface Props {
 }
 
 function Input({ currency, value, rate, onChange }: Props) {
+  console.log(value);
   return (
     <div className={styles.input}>
       <div className={styles.input_wrapper}>
@@ -20,7 +21,7 @@ function Input({ currency, value, rate, onChange }: Props) {
         <input
           id={currency}
           type="number"
-          value={value}
+          value={Number(value).toString()}
           onChange={(event) => onChange(validateInput(event.target.value))}
           className={styles.input__field}
         />

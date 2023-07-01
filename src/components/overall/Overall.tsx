@@ -16,7 +16,7 @@ function Overall({ salary, rates }: Props) {
     return formatSalary(sum);
   }
 
-  return <h3>{`Overall: ${getOverallSalary()}`}</h3>;
+  return <h3>{`${getOverallSalary()}`}</h3>;
 }
 
 export default Overall;
