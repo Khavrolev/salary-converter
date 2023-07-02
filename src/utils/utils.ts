@@ -1,4 +1,3 @@
-import { BASE_CURRENCY } from "./constants";
 import { Currency, CurrencyRates } from "./types";
 
 export function initSalary() {
@@ -13,7 +12,7 @@ export function initSalary() {
 export function formatSalary(value: number) {
   return `${value.toLocaleString("ru", {
     maximumFractionDigits: 2,
-  })} ${BASE_CURRENCY}`;
+  })} ${Currency.RUB}`;
 }
 
 export function validateInput(value: string | null) {

@@ -10,7 +10,6 @@ interface Props {
 }
 
 function Input({ currency, value, rate, onChange }: Props) {
-  console.log(value);
   return (
     <div className={styles.input}>
       <div className={styles.input_wrapper}>

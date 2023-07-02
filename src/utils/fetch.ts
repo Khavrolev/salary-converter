@@ -1,7 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Currency, CurrencyResponse } from "./types";
-import { BASE_CURRENCY } from "./constants";
 
 export async function getCurrencyRates() {
   try {
@@ -10,9 +9,9 @@ export async function getCurrencyRates() {
     } = await axios.get<CurrencyResponse>(
       `https://api.freecurrencyapi.com/v1/latest?apikey=${
         import.meta.env.VITE_CURRENCY_API_KEY
-      }&currencies=${Object.values(Currency).join(
-        "%2C"
-      )}&base_currency=${BASE_CURRENCY}`
+      }&currencies=${Object.values(Currency).join("%2C")}&base_currency=${
+        Currency.RUB
+      }`
     );
 
     return data;
