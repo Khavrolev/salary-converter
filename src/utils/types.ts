@@ -4,8 +4,14 @@ export enum Currency {
   RUB = "RUB",
 }
 
-export type CurrencyRates = Record<Currency, number>;
+export interface CurrencyValue {
+  Nominal: number;
+  Value: number;
+}
+
+export type CurrencySalary = Record<Currency, number>;
+export type CurrencyRates = Record<Currency, CurrencyValue>;
 
 export interface CurrencyResponse {
-  data: CurrencyRates;
+  Valute: CurrencyRates;
 }

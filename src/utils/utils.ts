@@ -1,4 +1,4 @@
-import { Currency, CurrencyRates } from "./types";
+import { Currency, CurrencySalary } from "./types";
 
 export function initSalary() {
   return Object.values(Currency).reduce((acc, currency) => {
@@ -6,7 +6,7 @@ export function initSalary() {
     acc[currency] = validateInput(valueFromLocalStorage);
 
     return acc;
-  }, {} as CurrencyRates);
+  }, {} as CurrencySalary);
 }
 
 export function formatSalary(value: number) {

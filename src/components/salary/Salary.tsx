@@ -1,11 +1,11 @@
-import { Currency, CurrencyRates } from "../../utils/types";
+import { Currency, CurrencyRates, CurrencySalary } from "../../utils/types";
 import Input from "../input/Input";
 import styles from "./Salary.module.scss";
 
 interface Props {
-  salary: CurrencyRates;
+  salary: CurrencySalary;
   rates: CurrencyRates;
-  changeSalary: (salary: CurrencyRates) => void;
+  changeSalary: (salary: CurrencySalary) => void;
 }
 
 function Salary({ salary, rates, changeSalary }: Props) {
@@ -21,7 +21,8 @@ function Salary({ salary, rates, changeSalary }: Props) {
           key={currency}
           currency={currency}
           value={salary[currency]}
-          rate={rates[currency]}
+          nominal={rates[currency].Nominal}
+          rate={rates[currency].Value}
           onChange={(value) => updateSalary(currency, value)}
         />
       ))}

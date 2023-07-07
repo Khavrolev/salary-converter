@@ -5,11 +5,12 @@ import styles from "./Input.module.scss";
 interface Props {
   currency: Currency;
   value: number;
+  nominal: number;
   rate: number;
   onChange: (value: number) => void;
 }
 
-function Input({ currency, value, rate, onChange }: Props) {
+function Input({ currency, value, nominal, rate, onChange }: Props) {
   return (
     <div className={styles.input}>
       <div className={styles.input_wrapper}>
@@ -25,7 +26,9 @@ function Input({ currency, value, rate, onChange }: Props) {
           className={styles.input__field}
         />
       </div>
-      <h4 className={styles.input__overall}>{formatSalary(value / rate)}</h4>
+      <h4 className={styles.input__overall}>
+        {formatSalary((rate * value) / nominal)}
+      </h4>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrencyRates } from "./utils/fetch";
-import { CurrencyRates } from "./utils/types";
+import { CurrencyRates, CurrencySalary } from "./utils/types";
 import Overall from "./components/overall/Overall";
 import Salary from "./components/salary/Salary";
 import { initSalary } from "./utils/utils";
@@ -10,8 +10,8 @@ import Image from "./components/image/Image";
 import styles from "./App.module.scss";
 
 function App() {
+  const [salary, setSalary] = useState<CurrencySalary>(initSalary());
   const [rates, setRates] = useState<CurrencyRates>();
-  const [salary, setSalary] = useState<CurrencyRates>(initSalary());
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

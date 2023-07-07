@@ -1,15 +1,17 @@
-import { Currency, CurrencyRates } from "../../utils/types";
+import { Currency, CurrencyRates, CurrencySalary } from "../../utils/types";
 import { formatSalary } from "../../utils/utils";
 
 interface Props {
-  salary: CurrencyRates;
+  salary: CurrencySalary;
   rates: CurrencyRates;
 }
 
 function Overall({ salary, rates }: Props) {
   function getOverallSalary() {
     const sum = Object.values(Currency).reduce(
-      (acc, currency) => acc + salary[currency] / rates[currency],
+      (acc, currency) =>
+        acc +
+        (salary[currency] * rates[currency].Value) / rates[currency].Nominal,
       0
     );
 

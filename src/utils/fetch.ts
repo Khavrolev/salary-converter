@@ -5,16 +5,12 @@ import { Currency, CurrencyResponse } from "./types";
 export async function getCurrencyRates() {
   try {
     const {
-      data: { data },
+      data: { Valute: data },
     } = await axios.get<CurrencyResponse>(
-      `https://api.freecurrencyapi.com/v1/latest?apikey=${
-        import.meta.env.VITE_CURRENCY_API_KEY
-      }&currencies=${Object.values(Currency).join("%2C")}&base_currency=${
-        Currency.RUB
-      }`
+      "https://www.cbr-xml-daily.ru/daily_json.js"
     );
 
-    return data;
+    return { ...data, [Currency.RUB]: { Nominal: 1, Value: 1 } };
   } catch (error) {
     toast.error("Oops, something wrong...", {
       position: "bottom-right",
