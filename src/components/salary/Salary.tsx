@@ -1,3 +1,4 @@
+import { SALARY_LOCAL_STORAGE_NAME } from "../../utils/const";
 import { Currency, CurrencyRates, CurrencySalary } from "../../utils/types";
 import Input from "../input/Input";
 import styles from "./Salary.module.scss";
@@ -10,8 +11,10 @@ interface Props {
 
 function Salary({ salary, rates, changeSalary }: Props) {
   function updateSalary(currency: Currency, value: number) {
-    changeSalary({ ...salary, [currency]: value });
-    localStorage.setItem(currency, value.toString());
+    const newSalary = { ...salary, [currency]: value };
+    changeSalary(newSalary);
+
+    localStorage.setItem(SALARY_LOCAL_STORAGE_NAME, JSON.stringify(newSalary));
   }
 
   return (

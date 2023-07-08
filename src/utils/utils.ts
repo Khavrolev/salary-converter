@@ -1,9 +1,27 @@
+import { SALARY_LOCAL_STORAGE_NAME } from "./const";
 import { Currency, CurrencySalary } from "./types";
 
 export function initSalary() {
+  const salary = localStorage.getItem(SALARY_LOCAL_STORAGE_NAME);
+
+  if (!salary) {
+    return getValidSalary();
+  }
+
+  try {
+    return getValidSalary(JSON.parse(salary));
+  } catch {
+    return getValidSalary();
+  }
+}
+
+function getValidSalary(salary?: CurrencySalary) {
   return Object.values(Currency).reduce((acc, currency) => {
-    const valueFromLocalStorage = localStorage.getItem(currency);
-    acc[currency] = validateInput(valueFromLocalStorage);
+    if (salary && !isNaN(salary[currency])) {
+      acc[currency] = Number(salary[currency]);
+    } else {
+      acc[currency] = 0;
+    }
 
     return acc;
   }, {} as CurrencySalary);
