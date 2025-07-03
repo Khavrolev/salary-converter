@@ -5,12 +5,15 @@ import { Currency, CurrencyResponse } from "./types";
 export async function getCurrencyRates() {
   try {
     const {
-      data: { Valute: data },
+      data: { Valute },
     } = await axios.get<CurrencyResponse>(
       "https://www.cbr-xml-daily.ru/daily_json.js"
     );
 
-    return { ...data, [Currency.RUB]: { Nominal: 1, Value: 1 } };
+    return {
+      ...Valute,
+      [Currency.RUB]: { Nominal: 1, Previous: 1, Value: 1, Name: "Рубль" },
+    };
   } catch (error) {
     toast.error("Oops, something wrong...", {
       position: "bottom-right",

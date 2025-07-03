@@ -6,7 +6,9 @@ export enum Currency {
 
 export interface CurrencyValue {
   Nominal: number;
+  Previous: number;
   Value: number;
+  Name: string;
 }
 
 export type CurrencySalary = Record<Currency, number>;

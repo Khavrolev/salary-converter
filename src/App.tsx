@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { getCurrencyRates } from "./utils/fetch";
 import { CurrencyRates, CurrencySalary } from "./utils/types";
-import Overall from "./components/overall/Overall";
-import Salary from "./components/salary/Salary";
+import { Overall } from "./components/overall/Overall";
+import { Salary } from "./components/salary/Salary";
 import { initSalary } from "./utils/utils";
 import loadingLogo from "../assets/loading.gif";
 import oopsLogo from "../assets/oops.gif";
-import Image from "./components/image/Image";
+import { Image } from "./components/image/Image";
 import styles from "./App.module.scss";
 
 function App() {

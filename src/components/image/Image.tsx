@@ -5,8 +5,6 @@ interface Props {
   alt: string;
 }
 
-function Image({ src, alt }: Props) {
+export function Image({ src, alt }: Props) {
   return <img src={src} alt={alt} className={styles.image} />;
 }
-
-export default Image;

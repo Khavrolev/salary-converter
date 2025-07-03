@@ -6,7 +6,7 @@ interface Props {
   rates: CurrencyRates;
 }
 
-function Overall({ salary, rates }: Props) {
+export function Overall({ salary, rates }: Props) {
   function getOverallSalary() {
     const sum = Object.values(Currency).reduce(
       (acc, currency) =>
@@ -20,5 +20,3 @@ function Overall({ salary, rates }: Props) {
 
   return <h3>{`${getOverallSalary()}`}</h3>;
 }
-
-export default Overall;
